@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bo5ykhbd41dmp"]
+
+[ext_resource type="Texture2D" uid="uid://c20nwjycs2rfk" path="res://assets/art/characters/us-player.png" id="1_rp718"]
+
+[sub_resource type="Animation" id="Animation_yewv4"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_76oj4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyp2m"]
+_data = {
+&"Idle": SubResource("Animation_yewv4"),
+&"RESET": SubResource("Animation_76oj4")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpat"]
+radius = 4.0
+height = 18.0
+
+[node name="Player" type="CharacterBody2D" unique_id=40143320]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453585455]
+texture = ExtResource("1_rp718")
+centered = false
+offset = Vector2(-16, -32)
+hframes = 6
+vframes = 13
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=567027603]
+libraries/ = SubResource("AnimationLibrary_dyp2m")
+autoplay = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=82660230]
+position = Vector2(0, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_atpat")
