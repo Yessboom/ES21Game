@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo5ykhbd41dmp"]
 
-[ext_resource type="Texture2D" uid="uid://6vb2igo6fkvu" path="res://assets/art/characters/(soccer-player backup)-1773429020.774-0.png" id="1_rp718"]
 [ext_resource type="Script" uid="uid://ce2fxtmupbmg3" path="res://scenes/characters/player.gd" id="1_yewv4"]
+[ext_resource type="Texture2D" uid="uid://dd7y88k8yl6xt" path="res://assets/art/characters/((soccer-player backup)-1773429020.774-0 backup)-1773694871.png" id="2_yewv4"]
 
 [sub_resource type="Animation" id="Animation_76oj4"]
 length = 0.001
@@ -54,11 +54,30 @@ tracks/0/keys = {
 "values": [6, 7, 8, 9, 10, 11]
 }
 
+[sub_resource type="Animation" id="Animation_atpat"]
+resource_name = "tackle"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dyp2m"]
 _data = {
 &"RESET": SubResource("Animation_76oj4"),
 &"idle": SubResource("Animation_yewv4"),
-&"run": SubResource("Animation_dyp2m")
+&"run": SubResource("Animation_dyp2m"),
+&"tackle": SubResource("Animation_atpat")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpat"]
@@ -71,7 +90,7 @@ speed = 80.0
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1453585455]
 unique_name_in_owner = true
-texture = ExtResource("1_rp718")
+texture = ExtResource("2_yewv4")
 centered = false
 offset = Vector2(-16, -32)
 hframes = 6

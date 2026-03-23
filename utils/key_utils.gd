@@ -9,7 +9,7 @@ const ACTIONS_MAP: Dictionary = {
 		Action.UP: "p1_up",
 		Action.DOWN: "p1_down",
 		Action.PASS: "p1_pass",
-		Action.TACKLE: "p1_shoot",
+		Action.TACKLE: "p1_tackle",
 	},
 		Player.ControlScheme.P2: {
 		Action.LEFT: "p2_left",
@@ -17,7 +17,7 @@ const ACTIONS_MAP: Dictionary = {
 		Action.UP: "p2_up",
 		Action.DOWN: "p2_down",
 		Action.PASS: "p2_pass",
-		Action.TACKLE: "p2_shoot",
+		Action.TACKLE: "p2_tackle",
 	},
 }
 
